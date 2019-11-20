@@ -8,7 +8,7 @@ const port = 3000;
 var conn = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '',a
+  password: '',
   database: 'zen_cmd'
 });
 
