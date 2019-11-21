@@ -77,7 +77,6 @@ module.exports = {
     loginBySession: async function(session) {
         var user_id = (await getUserIdBySession(session)).user_id;
         var user = (await getUserById(user_id)).dataValues;
-        console.log(user);
         return user;
     }
 }
