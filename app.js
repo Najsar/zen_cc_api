@@ -1,39 +1,13 @@
-
 const express = require('express');
-const mysql = require('mysql');
+
+var main = require('./func/main');
 
 const app = express();
 const port = 3000;
 
-var conn = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'zen_cmd'
-});
-
-conn.connect();
-
-var query = [];
-
-conn.query('SELECT * FROM users', function (err, rows, fields) {
-  if (err) throw err
-
-  query = rows;
-});
-
-conn.end();
-
+app.disable('x-powered-by');
 app.set('views', __dirname);
 
-app.get('/', (req, res) => {
-    res.json({data:'Main page', page:'index'});
-});
-app.get('/api/data/', (req, res) => {
-    res.json({data: JSON.stringify(query), page:'DATA'});
-});
-app.get('/api/:data', (req, res) => {
-    res.json({data: req.params.data, page:'DATA'});
-});
+app.use('/', require('./router/main'));
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(port, () => console.log(`Server running on port ${port}!`));
