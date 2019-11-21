@@ -14,10 +14,8 @@ router.post('/api/login/', async (req, res) => {
     var user_name = req.body.user;
     var user_pass = req.body.pass;
     var user = await func.loginUser(user_name, user_pass);
-    //console.log(salt);
+
     res.json({page:'login', data: user});
-    
-    //
 });
 router.get('/api/:data', (req, res) => {
     res.json({data: req.params.data, page:'DATA2'});
