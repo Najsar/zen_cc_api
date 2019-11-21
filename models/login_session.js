@@ -4,7 +4,10 @@ module.exports = (sequelize, DataTypes) => {
     user_id: DataTypes.INTEGER,
     session: DataTypes.STRING,
     date: DataTypes.DATE
-  }, {});
+  }, {
+    freezeTableName: true,
+    tableName: 'login_session'
+  });
   login_session.associate = function(models) {
     // associations can be defined here
   };
