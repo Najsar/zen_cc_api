@@ -6,7 +6,10 @@ module.exports = (sequelize, DataTypes) => {
     price: DataTypes.STRING,
     countable: DataTypes.INTEGER,
     amount: DataTypes.INTEGER
-  }, {});
+  }, {
+    freezeTableName: true,
+    tableName: 'product_list'
+  });
   product_list.associate = function(models) {
     // associations can be defined here
   };

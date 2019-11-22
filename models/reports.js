@@ -14,7 +14,10 @@ module.exports = (sequelize, DataTypes) => {
     bonus: DataTypes.STRING,
     end_balance: DataTypes.STRING,
     date: DataTypes.DATE
-  }, {});
+  }, {
+    freezeTableName: true,
+    tableName: 'reports'
+  });
   reports.associate = function(models) {
     // associations can be defined here
   };

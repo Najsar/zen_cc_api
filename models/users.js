@@ -5,7 +5,10 @@ module.exports = (sequelize, DataTypes) => {
     Pass: DataTypes.STRING,
     Salt: DataTypes.STRING,
     isAdmin: DataTypes.INTEGER
-  }, {});
+  }, {
+    freezeTableName: true,
+    tableName: 'users'
+  });
   users.associate = function(models) {
     // associations can be defined here
   };

@@ -10,7 +10,10 @@ module.exports = (sequelize, DataTypes) => {
     paid_price: DataTypes.STRING,
     exchange: DataTypes.STRING,
     time: DataTypes.DATE
-  }, {});
+  }, {
+    freezeTableName: true,
+    tableName: 'sessions'
+  });
   sessions.associate = function(models) {
     // associations can be defined here
   };

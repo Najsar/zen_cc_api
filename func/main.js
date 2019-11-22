@@ -37,7 +37,7 @@ function getUser(user) {
 }
 function getUserIdBySession(session) {
     return models.login_session.findOne({
-        attributes: ['user_id'],
+        attributes: ['user_id', 'date'],
         where: {
             session: session
         }
@@ -64,19 +64,33 @@ module.exports = {
         if(await checkPass(user, pass)) {
             var session = gen(16);
             var user_db = await getUser(user);
-            models.login_session.create({ user_id: user_db.id, session: session, date:  Date.now()})
+            var dt = new Date();
+            dt.setTime(dt.getTime() + (24 * 60 * 60 * 1000));
+            models.login_session.create({ user_id: user_db.id, session: session, date:  dt})
             .then(session => {
                 console.log('Session saved as id: '+session.dataValues.id);
             });
-            return {status: 1, user: user_db};
+            return {status: 1, user: user_db, session: session};
         }
         else {
             return {status: 0};
         }
     },
     loginBySession: async function(session) {
-        var user_id = (await getUserIdBySession(session)).user_id;
-        var user = (await getUserById(user_id)).dataValues;
-        return user;
+        var user_id = (await getUserIdBySession(session));
+        if(user_id == null) {
+            return {status: 0};
+        }
+        else {
+            var user_date = new Date(user_id.date);
+            var current_date = new Date();
+            if(current_date > user_date) {
+                return {status: 0};
+            }
+            else {
+                var user = (await getUserById(user_id.user_id)).dataValues;
+                return {status: 1, user: user};
+            }
+        }
     }
 }
