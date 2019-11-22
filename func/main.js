@@ -92,5 +92,10 @@ module.exports = {
                 return {status: 1, user: user};
             }
         }
+    },
+    genPass: function(pass) {
+        var salt = bcrypt.genSaltSync(10);
+        var hash = bcrypt.hashSync(pass, salt);
+        return hash;
     }
 }
