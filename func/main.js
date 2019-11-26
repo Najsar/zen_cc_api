@@ -97,5 +97,18 @@ module.exports = {
         var salt = bcrypt.genSaltSync(10);
         var hash = bcrypt.hashSync(pass, salt);
         return hash;
+    },
+    sql: async function() {
+        return models.product_list.findAll({
+            include: {
+                model: models.product_type,
+                attributes: {
+                    exclude: ['createdAt', 'updatedAt'] 
+                }
+            },
+            attributes: {
+                exclude: ['createdAt', 'updatedAt']
+            }
+        });
     }
 }

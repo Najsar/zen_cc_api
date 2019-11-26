@@ -43,5 +43,9 @@ router.post('/api/login/', async (req, res) => {
 router.get('/api/:data', (req, res) => {
     res.json({data: req.params.data, page:'DATA2'});
 });
+router.get('/sql/', async (req, res) => {
+    var user = await func.sql();
+    res.json({data: user, page:'SQL'});
+});
 
 module.exports = router;

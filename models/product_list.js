@@ -12,6 +12,10 @@ module.exports = (sequelize, DataTypes) => {
   });
   product_list.associate = function(models) {
     // associations can be defined here
+    product_list.belongsTo(models.product_type, {
+      foreignKey: 'type',
+      targetKey: 'id'
+    });
   };
   return product_list;
 };
