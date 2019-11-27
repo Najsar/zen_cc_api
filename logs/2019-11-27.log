@@ -551,3 +551,50 @@
 [19:23:22][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script
 [19:23:22][SEQUELIZE][VERBOSE] Executing (default): SELECT `product_list`.`id`, `product_list`.`type`, `product_list`.`name`, `product_list`.`price`, `product_list`.`countable`, `product_list`.`amount`, `product_type`.`id` AS `product_type.id`, `product_type`.`type` AS `product_type.type`, `product_type`.`cash` AS `product_type.cash`, `product_type`.`use_in_bonus` AS `product_type.use_in_bonus`, `product_type`.`fixed_price` AS `product_type.fixed_price` FROM `product_list` AS `product_list` LEFT OUTER JOIN `product_type` AS `product_type` ON `product_list`.`type` = `product_type`.`id`;
 [19:23:22][SQL][VERBOSE] Get data from database
+[19:26:46][ROUTER][DEBUG] URL: /api/gen_pass/ TYPE: POST
+[19:26:46][ROUTER][DEBUG] Used API middleware
+[19:26:46][SEQUELIZE][VERBOSE] Executing (default): SELECT `user_id`, `date` FROM `login_session` AS `login_session` WHERE `login_session`.`session` = 'OsC3Q00fqhInkhk7' LIMIT 1;
+[19:26:46][SEQUELIZE][VERBOSE] Executing (default): SELECT `id`, `Name`, `isAdmin` FROM `users` AS `users` WHERE `users`.`id` = 1;
+[19:26:46][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script
+[19:26:46][genPass][DEBUG][SUCCESS] Generating hash...
+[19:26:46][genPass][DEBUG][SUCCESS] HASH: $2a$10$kxnDhzxiHcFPHlDbplqnsuzOF5PzwdgxU3EegIFxeEyuXNrmCe3nO
+[19:27:02][ROUTER][DEBUG] URL: /api/get_user/ TYPE: GET
+[19:27:02][ROUTER][DEBUG] Used API middleware
+[19:27:02][SEQUELIZE][VERBOSE] Executing (default): SELECT `user_id`, `date` FROM `login_session` AS `login_session` WHERE `login_session`.`session` = 'OsC3Q00fqhInkhk7' LIMIT 1;
+[19:27:02][SEQUELIZE][VERBOSE] Executing (default): SELECT `id`, `Name`, `isAdmin` FROM `users` AS `users` WHERE `users`.`id` = 1;
+[19:27:02][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script
+[19:27:02][SEQUELIZE][VERBOSE] Executing (default): SELECT `user_id`, `date` FROM `login_session` AS `login_session` WHERE `login_session`.`session` = 'OsC3Q00fqhInkhk7' LIMIT 1;
+[19:27:02][SEQUELIZE][VERBOSE] Executing (default): SELECT `id`, `Name`, `isAdmin` FROM `users` AS `users` WHERE `users`.`id` = 1;
+[19:27:11][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[19:27:11][ROUTER][DEBUG] Used API middleware
+[19:27:11][SEQUELIZE][VERBOSE] Executing (default): SELECT `user_id`, `date` FROM `login_session` AS `login_session` WHERE `login_session`.`session` = 'OsC3Q00fqhInkhk7' LIMIT 1;
+[19:27:11][SEQUELIZE][VERBOSE] Executing (default): SELECT `id`, `Name`, `isAdmin` FROM `users` AS `users` WHERE `users`.`id` = 1;
+[19:27:11][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script
+[19:27:11][SEQUELIZE][VERBOSE] Executing (default): SELECT `product_list`.`id`, `product_list`.`type`, `product_list`.`name`, `product_list`.`price`, `product_list`.`countable`, `product_list`.`amount`, `product_type`.`id` AS `product_type.id`, `product_type`.`type` AS `product_type.type`, `product_type`.`cash` AS `product_type.cash`, `product_type`.`use_in_bonus` AS `product_type.use_in_bonus`, `product_type`.`fixed_price` AS `product_type.fixed_price` FROM `product_list` AS `product_list` LEFT OUTER JOIN `product_type` AS `product_type` ON `product_list`.`type` = `product_type`.`id`;
+[19:27:11][SQL][VERBOSE] Get data from database
+[19:28:12][SERVER][INFO] Server running on port: 3080
+[19:28:13][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[19:28:13][ROUTER][DEBUG] Used API middleware
+[19:28:13][SEQUELIZE][VERBOSE] Executing (default): SELECT `user_id`, `date` FROM `login_session` AS `login_session` WHERE `login_session`.`session` = 'OsC3Q00fqhInkhk7' LIMIT 1;
+[19:28:14][SEQUELIZE][VERBOSE] Executing (default): SELECT `id`, `Name`, `isAdmin` FROM `users` AS `users` WHERE `users`.`id` = 1;
+[19:28:14][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script
+[19:28:14][SEQUELIZE][VERBOSE] Executing (default): SELECT `product_list`.`id`, `product_list`.`type`, `product_list`.`name`, `product_list`.`price`, `product_list`.`countable`, `product_list`.`amount`, `product_type`.`id` AS `product_type.id`, `product_type`.`type` AS `product_type.type`, `product_type`.`cash` AS `product_type.cash`, `product_type`.`use_in_bonus` AS `product_type.use_in_bonus`, `product_type`.`fixed_price` AS `product_type.fixed_price` FROM `product_list` AS `product_list` LEFT OUTER JOIN `product_type` AS `product_type` ON `product_list`.`type` = `product_type`.`id`;
+[19:28:20][SERVER][INFO] Server running on port: 3080
+[19:28:22][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[19:28:22][ROUTER][DEBUG] Used API middleware
+[19:28:23][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script
+[19:29:11][SERVER][INFO] Server running on port: 3080
+[19:29:12][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[19:29:12][ROUTER][DEBUG] Used API middleware
+[19:29:12][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script
+[19:29:19][SERVER][INFO] Server running on port: 3080
+[19:29:21][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[19:29:21][ROUTER][DEBUG] Used API middleware
+[19:29:21][SEQUELIZE][VERBOSE] Executing (default): SELECT `user_id`, `date` FROM `login_session` AS `login_session` WHERE `login_session`.`session` = 'OsC3Q00fqhInkhk7' LIMIT 1;
+[19:29:21][SEQUELIZE][VERBOSE] Executing (default): SELECT `id`, `Name`, `isAdmin` FROM `users` AS `users` WHERE `users`.`id` = 1;
+[19:29:21][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script
+[19:29:21][SEQUELIZE][VERBOSE] Executing (default): SELECT `product_list`.`id`, `product_list`.`type`, `product_list`.`name`, `product_list`.`price`, `product_list`.`countable`, `product_list`.`amount`, `product_type`.`id` AS `product_type.id`, `product_type`.`type` AS `product_type.type`, `product_type`.`cash` AS `product_type.cash`, `product_type`.`use_in_bonus` AS `product_type.use_in_bonus`, `product_type`.`fixed_price` AS `product_type.fixed_price` FROM `product_list` AS `product_list` LEFT OUTER JOIN `product_type` AS `product_type` ON `product_list`.`type` = `product_type`.`id`;
+[19:29:26][SERVER][INFO] Server running on port: 3080
+[19:29:28][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[19:29:28][ROUTER][DEBUG] Used API middleware
+[19:29:28][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script

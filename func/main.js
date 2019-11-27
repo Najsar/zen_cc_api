@@ -117,7 +117,6 @@ module.exports = {
                 exclude: ['createdAt', 'updatedAt']
             }
         });
-        log.log("SQL", "Get data from database", 5);
         for(i=0; i<product_list.length;i++) {
             var temp_array = [ product_list[i]['id'], product_list[i]['product_type']['type'], product_list[i]['name'], product_list[i]['price'], product_list[i]['product_type']['id'], product_list[i]['product_type']['cash'], product_list[i]['product_type']['use_in_bonus'], product_list[i]['product_type']['fixed_price'] ];
             return_array.push(temp_array);

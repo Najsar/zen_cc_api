@@ -9,13 +9,10 @@ const func = require('../func/log');
 const db = {};
 
 let sequelize;
-var logging = function(msg) {
-  var logging = func.log('SEQUELIZE', msg, 5);
-}
 sequelize = new Sequelize(config.database, config.username, config.password, {
   host: config.host, 
   dialect: config.dialect,
-  logging: logging
+  logging: msg => func.log('SEQUELIZE', msg, 5)
 });
 
 fs
