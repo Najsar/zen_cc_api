@@ -1,2 +1,4 @@
 node_modules
 logs
+logs/*
+logs/2019-11-27.log
