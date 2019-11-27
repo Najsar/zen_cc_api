@@ -1,6 +1,6 @@
 const express = require('express');
 const config = require(__dirname + '/config/config.json');
-var func = require('./func/main');
+var func = require('./func/log');
 
 const app = express();
 

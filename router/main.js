@@ -3,6 +3,7 @@ const router = express.Router();
 const api = express.Router();
 var bodyParser = require("body-parser");
 var func = require('../func/main');
+var log = require('../func/log');
 var cookieParser = require('cookie-parser');
 
 router.use(bodyParser.json());
@@ -10,17 +11,17 @@ router.use(bodyParser.urlencoded({ extended: true }));
 router.use(cookieParser());
 
 router.use((req, res, next) => {
-    func.log('ROUTER', "URL: "+ req.url + " TYPE: " + req.method, 4);
+    log.log('ROUTER', "URL: "+ req.url + " TYPE: " + req.method, 4);
     next();
 });
 api.use( async (req, res, next) => {
-    func.log('ROUTER', "Used API middleware", 4);
+    log.log('ROUTER', "Used API middleware", 4);
     if( req.cookies.userLogin != undefined ) {
         var user = await func.loginBySession(req.cookies.userLogin);
         if(user.status == 0) {
             res.clearCookie('userLogin');
             var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress ||(req.connection.socket ? req.connection.socket.remoteAddress : null);
-            func.log('ROUTER', "Saved ip address: " + ip, 4, 3);
+            log.log('ROUTER', "Saved ip address: " + ip, 4, 3);
             login = 0;
         }
         else {
@@ -32,11 +33,11 @@ api.use( async (req, res, next) => {
     }
 
     if(login == 0) {
-        func.log('ROUTER', "User not authenticated, stop script", 4, 3);
+        log.log('ROUTER', "User not authenticated, stop script", 4, 3);
         res.json({status:0, data: 'User not login'});
     }
     else {
-        func.log('ROUTER', "User authenticated, id: " + login + ", executing script", 4, 1);
+        log.log('ROUTER', "User authenticated, id: " + login + ", executing script", 4, 1);
         next();
     }
 })
@@ -59,19 +60,19 @@ router.post('/login/', async (req, res) => {
                 var user = await func.loginUser(user_name, user_pass);
                 if(user.status == 1) {
                     res.cookie("userLogin", user.session, {maxAge: (1000*60*60*24)} );
-                    func.log('LOGIN', "Login success | USER ID: " + user.user.id, 4, 1); 
+                    log.log('LOGIN', "Login success | USER ID: " + user.user.id, 4, 1); 
                     res.json({status: 1, data: 'Login success'});
                 }
             }
         }
         else {
-            func.log('LOGIN', "User already login | USER ID: " + user.user.id, 4, 3);
+            log.log('LOGIN', "User already login | USER ID: " + user.user.id, 4, 3);
             res.json({status: 2, data: 'User already login'});
         }
     }
     else {
         if(user_name == undefined || user_pass == undefined) {
-            func.log('LOGIN', "No data was send", 4, 3);
+            log.log('LOGIN', "No data was send", 4, 3);
             res.json({status: 0, data: 'No data'});
         }
         else {
@@ -108,7 +109,7 @@ api.post('/gen_pass/', async (req, res) => {
 router.use('/api/', api);
 
 router.use('*', (req, res) => {
-    func.log('ROUTER', "PAGE NOT FOUND: URL: "+ req.originalUrl + " TYPE: " + req.method, 4, 3);
+    log.log('ROUTER', "PAGE NOT FOUND: URL: "+ req.originalUrl + " TYPE: " + req.method, 4, 3);
     res.json({status: 0,error: 404, data: 'Page not found'});
 });
 

@@ -399,3 +399,155 @@
 [18:36:45][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script
 [18:36:45][SQL][VERBOSE] Get data from database
 [18:36:57][SERVER][INFO] Server running on port: 3080
+[18:41:42][ROUTER][DEBUG] URL: /ew TYPE: GET
+[18:41:42][ROUTER][DEBUG][ERROR] PAGE NOT FOUND: URL: /ew TYPE: GET
+[18:41:42][ROUTER][DEBUG] URL: /favicon.ico TYPE: GET
+[18:41:42][ROUTER][DEBUG][ERROR] PAGE NOT FOUND: URL: /favicon.ico TYPE: GET
+[18:42:01][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[18:42:01][ROUTER][DEBUG] Used API middleware
+[18:42:01][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script
+[18:42:01][SQL][VERBOSE] Get data from database
+[18:44:02][SERVER][INFO] Server running on port: 3080
+[18:45:06][SERVER][INFO] Server running on port: 3080
+[18:45:10][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[18:45:10][ROUTER][DEBUG] Used API middleware
+[18:45:10][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script
+[18:45:10][SQL][VERBOSE] Get data from database
+[18:51:20][SERVER][INFO] Server running on port: 3080
+[18:51:24][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[18:51:24][ROUTER][DEBUG] Used API middleware
+[18:51:24][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script
+[18:51:24][SQL][VERBOSE] Get data from database
+[18:51:47][SERVER][INFO] Server running on port: 3080
+[18:51:49][ROUTER][DEBUG] Used API middleware
+[18:51:49][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[18:51:49][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script
+[18:51:49][SQL][VERBOSE] Get data from database
+[18:52:02][SERVER][INFO] Server running on port: 3080
+[18:52:04][ROUTER][DEBUG] Used API middleware
+[18:52:04][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[18:52:04][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script
+[18:52:04][SQL][VERBOSE] Get data from database
+[18:54:06][SERVER][INFO] Server running on port: 3080
+[18:54:41][SERVER][INFO] Server running on port: 3080
+[18:54:44][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[18:54:44][ROUTER][DEBUG] Used API middleware
+[18:54:44][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script
+[18:54:44][SQL][VERBOSE] Get data from database
+[18:56:59][SERVER][INFO] Server running on port: 3080
+[18:57:01][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[18:57:01][ROUTER][DEBUG] Used API middleware
+[18:57:51][SERVER][INFO] Server running on port: 3080
+[18:57:52][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[18:57:52][ROUTER][DEBUG] Used API middleware
+[18:58:14][SERVER][INFO] Server running on port: 3080
+[18:58:16][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[18:58:16][ROUTER][DEBUG] Used API middleware
+[18:58:51][SERVER][INFO] Server running on port: 3080
+[18:58:53][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[18:58:53][ROUTER][DEBUG] Used API middleware
+[18:59:53][SERVER][INFO] Server running on port: 3080
+[18:59:55][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[18:59:55][ROUTER][DEBUG] Used API middleware
+[19:01:19][SERVER][INFO] Server running on port: 3080
+[19:01:22][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[19:01:22][ROUTER][DEBUG] Used API middleware
+[19:02:24][SERVER][INFO] Server running on port: 3080
+[19:02:26][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[19:02:26][ROUTER][DEBUG] Used API middleware
+[19:02:26][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script
+[19:02:26][SQL][VERBOSE] Get data from database
+[19:03:18][SERVER][INFO] Server running on port: 3080
+[19:03:20][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[19:03:20][ROUTER][DEBUG] Used API middleware
+[19:03:45][SERVER][INFO] Server running on port: 3080
+[19:03:48][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[19:03:48][ROUTER][DEBUG] Used API middleware
+[19:04:19][SERVER][INFO] Server running on port: 3080
+[19:04:21][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[19:04:21][ROUTER][DEBUG] Used API middleware
+[19:04:21][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script
+[19:04:21][SQL][VERBOSE] Get data from database
+[19:04:53][SERVER][INFO] Server running on port: 3080
+[19:04:55][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[19:04:55][ROUTER][DEBUG] Used API middleware
+[19:04:55][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script
+[19:04:55][SQL][VERBOSE] Get data from database
+[19:05:17][SERVER][INFO] Server running on port: 3080
+[19:05:19][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[19:05:19][ROUTER][DEBUG] Used API middleware
+[19:05:19][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script
+[19:05:19][SQL][VERBOSE] Get data from database
+[19:07:19][SERVER][INFO] Server running on port: 3080
+[19:07:21][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[19:07:21][ROUTER][DEBUG] Used API middleware
+[19:08:40][SERVER][INFO] Server running on port: 3080
+[19:08:42][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[19:08:42][ROUTER][DEBUG] Used API middleware
+[19:09:13][SERVER][INFO] Server running on port: 3080
+[19:09:15][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[19:09:15][ROUTER][DEBUG] Used API middleware
+[19:09:57][SERVER][INFO] Server running on port: 3080
+[19:10:01][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[19:10:01][ROUTER][DEBUG] Used API middleware
+[19:10:12][SERVER][INFO] Server running on port: 3080
+[19:10:21][SERVER][INFO] Server running on port: 3080
+[19:10:35][SERVER][INFO] Server running on port: 3080
+[19:10:58][SERVER][INFO] Server running on port: 3080
+[19:12:33][SERVER][INFO] Server running on port: 3080
+[19:13:03][SERVER][INFO] Server running on port: 3080
+[19:13:08][SERVER][INFO] Server running on port: 3080
+[19:13:18][SERVER][INFO] Server running on port: 3080
+[19:14:02][SERVER][INFO] Server running on port: 3080
+[19:16:58][SERVER][INFO] Server running on port: 3080
+[19:18:05][SERVER][INFO] Server running on port: 3080
+[19:18:08][SERVER][INFO] Server running on port: 3080
+[19:18:18][SERVER][INFO] Server running on port: 3080
+[19:18:33][SERVER][INFO] Server running on port: 3080
+[19:18:39][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[19:18:39][ROUTER][DEBUG] Used API middleware
+[19:18:39][SEQUELIZE][DEBUG] tesrt
+[19:18:39][SEQUELIZE][DEBUG] tesrt
+[19:18:39][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script
+[19:18:39][SEQUELIZE][DEBUG] tesrt
+[19:18:39][SQL][VERBOSE] Get data from database
+[19:18:48][SERVER][INFO] Server running on port: 3080
+[19:18:50][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[19:18:50][ROUTER][DEBUG] Used API middleware
+[19:18:50][SEQUELIZE][DEBUG] Executing (default): SELECT `user_id`, `date` FROM `login_session` AS `login_session` WHERE `login_session`.`session` = 'OsC3Q00fqhInkhk7' LIMIT 1;
+[19:18:50][SEQUELIZE][DEBUG] Executing (default): SELECT `id`, `Name`, `isAdmin` FROM `users` AS `users` WHERE `users`.`id` = 1;
+[19:18:50][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script
+[19:18:50][SEQUELIZE][DEBUG] Executing (default): SELECT `product_list`.`id`, `product_list`.`type`, `product_list`.`name`, `product_list`.`price`, `product_list`.`countable`, `product_list`.`amount`, `product_type`.`id` AS `product_type.id`, `product_type`.`type` AS `product_type.type`, `product_type`.`cash` AS `product_type.cash`, `product_type`.`use_in_bonus` AS `product_type.use_in_bonus`, `product_type`.`fixed_price` AS `product_type.fixed_price` FROM `product_list` AS `product_list` LEFT OUTER JOIN `product_type` AS `product_type` ON `product_list`.`type` = `product_type`.`id`;
+[19:18:50][SQL][VERBOSE] Get data from database
+[19:19:21][SERVER][INFO] Server running on port: 3080
+[19:19:31][SERVER][INFO] Server running on port: 3080
+[19:19:36][SERVER][INFO] Server running on port: 3080
+[19:21:03][SERVER][INFO] Server running on port: 3080
+[19:21:08][SERVER][INFO] Server running on port: 3080
+[19:21:11][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[19:21:11][ROUTER][DEBUG] Used API middleware
+[19:21:52][SERVER][INFO] Server running on port: 3080
+[19:21:53][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[19:21:53][ROUTER][DEBUG] Used API middleware
+[19:21:53][SEQUELIZE][VERBOSE] Executing (default): SELECT `user_id`, `date` FROM `login_session` AS `login_session` WHERE `login_session`.`session` = 'OsC3Q00fqhInkhk7' LIMIT 1;
+[19:21:53][SEQUELIZE][VERBOSE] Executing (default): SELECT `id`, `Name`, `isAdmin` FROM `users` AS `users` WHERE `users`.`id` = 1;
+[19:21:53][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script
+[19:21:53][SEQUELIZE][VERBOSE] Executing (default): SELECT `product_list`.`id`, `product_list`.`type`, `product_list`.`name`, `product_list`.`price`, `product_list`.`countable`, `product_list`.`amount`, `product_type`.`id` AS `product_type.id`, `product_type`.`type` AS `product_type.type`, `product_type`.`cash` AS `product_type.cash`, `product_type`.`use_in_bonus` AS `product_type.use_in_bonus`, `product_type`.`fixed_price` AS `product_type.fixed_price` FROM `product_list` AS `product_list` LEFT OUTER JOIN `product_type` AS `product_type` ON `product_list`.`type` = `product_type`.`id`;
+[19:21:53][SQL][VERBOSE] Get data from database
+[19:22:08][SERVER][INFO] Server running on port: 3080
+[19:22:09][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[19:22:09][ROUTER][DEBUG] Used API middleware
+[19:22:09][SEQUELIZE][VERBOSE] Executing (default): SELECT `user_id`, `date` FROM `login_session` AS `login_session` WHERE `login_session`.`session` = 'OsC3Q00fqhInkhk7' LIMIT 1;
+[19:22:09][SEQUELIZE][VERBOSE] Executing (default): SELECT `id`, `Name`, `isAdmin` FROM `users` AS `users` WHERE `users`.`id` = 1;
+[19:22:09][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script
+[19:22:09][SEQUELIZE][VERBOSE] Executing (default): SELECT `product_list`.`id`, `product_list`.`type`, `product_list`.`name`, `product_list`.`price`, `product_list`.`countable`, `product_list`.`amount`, `product_type`.`id` AS `product_type.id`, `product_type`.`type` AS `product_type.type`, `product_type`.`cash` AS `product_type.cash`, `product_type`.`use_in_bonus` AS `product_type.use_in_bonus`, `product_type`.`fixed_price` AS `product_type.fixed_price` FROM `product_list` AS `product_list` LEFT OUTER JOIN `product_type` AS `product_type` ON `product_list`.`type` = `product_type`.`id`;
+[19:22:09][SQL][VERBOSE] Get data from database
+[19:23:18][SERVER][INFO] Server running on port: 3080
+[19:23:21][SERVER][INFO] Server running on port: 3080
+[19:23:22][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[19:23:22][ROUTER][DEBUG] Used API middleware
+[19:23:22][SEQUELIZE][VERBOSE] Executing (default): SELECT `user_id`, `date` FROM `login_session` AS `login_session` WHERE `login_session`.`session` = 'OsC3Q00fqhInkhk7' LIMIT 1;
+[19:23:22][SEQUELIZE][VERBOSE] Executing (default): SELECT `id`, `Name`, `isAdmin` FROM `users` AS `users` WHERE `users`.`id` = 1;
+[19:23:22][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script
+[19:23:22][SEQUELIZE][VERBOSE] Executing (default): SELECT `product_list`.`id`, `product_list`.`type`, `product_list`.`name`, `product_list`.`price`, `product_list`.`countable`, `product_list`.`amount`, `product_type`.`id` AS `product_type.id`, `product_type`.`type` AS `product_type.type`, `product_type`.`cash` AS `product_type.cash`, `product_type`.`use_in_bonus` AS `product_type.use_in_bonus`, `product_type`.`fixed_price` AS `product_type.fixed_price` FROM `product_list` AS `product_list` LEFT OUTER JOIN `product_type` AS `product_type` ON `product_list`.`type` = `product_type`.`id`;
+[19:23:22][SQL][VERBOSE] Get data from database
