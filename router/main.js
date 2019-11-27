@@ -14,7 +14,7 @@ router.use((req, res, next) => {
     next();
 });
 api.use( async (req, res, next) => {
-    func.log('ROUTER', "Used api middleware", 4);
+    func.log('ROUTER', "Used API middleware", 4);
     if( req.cookies.userLogin != undefined ) {
         var user = await func.loginBySession(req.cookies.userLogin);
         if(user.status == 0) {
@@ -45,11 +45,6 @@ router.get('/', (req, res) => {
     res.json({status: 1, data: 'Hits main page'});
 });
 
-router.get('/cookie/', (req, res) => {
-    res.cookie("userData", "test value", {maxAge: (1000*60*60*24)} ); 
-    res.json({status: 1, data: 'Hits cookie page', cookie: req.cookies, 'Signed Cookies: ': req.signedCookies});
-});
-
 router.post('/login/', async (req, res) => {
     var user_name = req.body.user;
     var user_pass = req.body.pass;
@@ -71,7 +66,7 @@ router.post('/login/', async (req, res) => {
         }
         else {
             func.log('LOGIN', "User already login | USER ID: " + user.user.id, 4, 3);
-            res.json({status: 0, data: 'User already login'});
+            res.json({status: 2, data: 'User already login'});
         }
     }
     else {
@@ -99,13 +94,14 @@ api.get('/sql/', async (req, res) => {
     var user = await func.sql();
     res.json({status:1, data: user});
 });
-api.post('/gen_pass/', async (req, res) => {
-    var hash = await func.genPass(req.body.pass);
-    res.json({status:1, data: hash});
-});
 api.get('/get_user/', async (req, res) => {
     var user = await func.loginBySession(req.cookies.userLogin);
     res.json({status: 1, data: user});
+});
+
+api.post('/gen_pass/', async (req, res) => {
+    var hash = await func.genPass(req.body.pass);
+    res.json({status:1, data: hash});
 });
 
 

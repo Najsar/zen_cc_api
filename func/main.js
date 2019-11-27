@@ -119,7 +119,7 @@ module.exports = {
             .then(session => {
                 this.log("LOGIN", 'Session saved as id: '+session.dataValues.id, 5);
             });
-            return {status: 1, user: user_db, session: session};
+            return { status: 1, user: user_db, session: session };
         }
         else {
             this.log("LOGIN", 'Username / Password not found', 4, 3);

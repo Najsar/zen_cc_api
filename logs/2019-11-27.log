@@ -344,3 +344,58 @@
 [18:15:51][ROUTER][DEBUG] Used api middleware
 [18:15:51][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script
 [18:15:51][SQL][VERBOSE] Get data from database
+[18:22:05][SERVER][INFO] Server running on port 3080!
+[18:22:24][SERVER][INFO] Server running on port 3080!
+[18:22:27][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[18:22:27][ROUTER][DEBUG] Used api middleware
+[18:22:27][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script
+[18:22:27][SQL][VERBOSE] Get data from database
+[18:22:39][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[18:22:39][ROUTER][DEBUG] Used api middleware
+[18:22:39][LOGIN][DEBUG][ERROR] Session not found, remove cookie
+[18:22:39][ROUTER][DEBUG][ERROR] Saved ip address: ::1
+[18:22:39][ROUTER][DEBUG][ERROR] User not authenticated, stop script
+[18:22:44][ROUTER][DEBUG] URL: /login/ TYPE: POST
+[18:22:44][LOGIN][VERBOSE] Session saved as id: 136
+[18:24:30][SERVER][INFO] Server running on port 3080!
+[18:24:37][ROUTER][DEBUG] URL: /login/ TYPE: POST
+[18:27:05][SERVER][INFO] Server running on port 3080!
+[18:27:09][ROUTER][DEBUG] URL: /login/ TYPE: POST
+[18:28:32][SERVER][INFO] Server running on port 3080!
+[18:28:56][SERVER][INFO] Server running on port 3080!
+[18:28:59][ROUTER][DEBUG] URL: /login/ TYPE: POST
+[18:29:00][LOGIN][VERBOSE] Session saved as id: 137
+[18:29:39][ROUTER][DEBUG] URL: /login/ TYPE: POST
+[18:29:39][LOGIN][VERBOSE] Session saved as id: 138
+[18:31:44][SERVER][INFO] Server running on port 3080!
+[18:31:46][ROUTER][DEBUG] URL: /login/ TYPE: POST
+[18:31:47][LOGIN][VERBOSE] Session saved as id: 139
+[18:31:58][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[18:31:58][ROUTER][DEBUG] Used api middleware
+[18:31:58][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script
+[18:31:58][SQL][VERBOSE] Get data from database
+[18:32:35][SERVER][INFO] Server running on port 3080!
+[18:32:37][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[18:32:37][ROUTER][DEBUG] Used API middleware
+[18:32:37][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script
+[18:32:37][SQL][VERBOSE] Get data from database
+[18:33:10][SERVER][INFO] Server running on port: 3080
+[18:34:21][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[18:34:21][ROUTER][DEBUG] Used API middleware
+[18:34:21][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script
+[18:34:21][SQL][VERBOSE] Get data from database
+[18:35:13][SERVER][INFO] Server running on port: 3080
+[18:35:33][SERVER][INFO] Server running on port: 3080
+[18:36:01][SERVER][INFO] Server running on port: 3080
+[18:36:04][ROUTER][DEBUG] URL: /login/ TYPE: POST
+[18:36:05][LOGIN][DEBUG][ERROR] User already login | USER ID: 1
+[18:36:11][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[18:36:11][ROUTER][DEBUG] Used API middleware
+[18:36:11][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script
+[18:36:11][SQL][VERBOSE] Get data from database
+[18:36:44][SERVER][INFO] Server running on port: 3080
+[18:36:45][ROUTER][DEBUG] URL: /api/sql/ TYPE: GET
+[18:36:45][ROUTER][DEBUG] Used API middleware
+[18:36:45][ROUTER][DEBUG][SUCCESS] User authenticated, id: 1, executing script
+[18:36:45][SQL][VERBOSE] Get data from database
+[18:36:57][SERVER][INFO] Server running on port: 3080

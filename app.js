@@ -9,4 +9,4 @@ app.set('views', __dirname);
 
 app.use('/', require('./router/main'));
 
-app.listen(config.port, () => func.log("SERVER",`Server running on port ${config.port}!`, 0));
+app.listen(config.port, () => func.log("SERVER",`Server running on port: ${config.port}`, 0));
