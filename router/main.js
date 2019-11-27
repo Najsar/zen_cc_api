@@ -99,6 +99,10 @@ api.get('/get_user/', async (req, res) => {
     var user = await func.loginBySession(req.cookies.userLogin);
     res.json({status: 1, data: user});
 });
+api.get('/logout/', async (req, res) => {
+    res.clearCookie('userLogin');
+    res.json({status: 1, data: 'Logout success'});
+});
 
 api.post('/gen_pass/', async (req, res) => {
     var hash = await func.genPass(req.body.pass);

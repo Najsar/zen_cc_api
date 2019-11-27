@@ -5,8 +5,8 @@ module.exports = {
         const config = require('../config/config.json');
         var type_file = "";
         var log_send = 0;
-        type_info = ["\x1b[34m[INFO]", "\x1b[32m[SUCCESS]", "\x1b[33m[WARNING]", "\x1b[31m[ERROR]", "\x1b[35m[DEBUG]", "\x1b[95m[VERBOSE]", "\x1b[34m[INFO]"];
-        type_file = ["[INFO]", "[SUCCESS]", "[WARNING]", "[ERROR]", "[DEBUG]", "[VERBOSE]", "[INFO]"];
+        type_info = ["\x1b[34m[INFO]", "\x1b[32m[SUCCESS]", "\x1b[33m[WARNING]", "\x1b[31m[ERROR]", "\x1b[35m[DEBUG]", "\x1b[95m[VERBOSE]"];
+        type_file = ["[INFO]", "[SUCCESS]", "[WARNING]", "[ERROR]", "[DEBUG]", "[VERBOSE]"];
 
         if(config.debug_level == 2) {
             log_send = 1;

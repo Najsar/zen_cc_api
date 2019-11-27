@@ -69,7 +69,7 @@ module.exports = {
             dt.setTime(dt.getTime() + (24 * 60 * 60 * 1000));
             models.login_session.create({ user_id: user_db.id, session: session, date:  dt})
             .then(session => {
-                log.log("LOGIN", 'Session saved as id: '+session.dataValues.id, 5);
+                log.log("LOGIN", 'Session saved as id: '+session.dataValues.id, 4);
             });
             return { status: 1, user: user_db, session: session };
         }
