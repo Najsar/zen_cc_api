@@ -42,10 +42,11 @@ module.exports = {
             }
         }
         if(log_send == 1) {
-
-            fs.appendFile("logs/"+new Date().toLocaleDateString()+".log", "[" + new Date().toLocaleTimeString() + "][" + trigger + "]"+ type_file_send +" " + message+"\n", (err) => {
-                if(err) console.log("\x1b[90m[" + new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString() + "]\x1b[96m[LOGGER]\x1b[31m[ERROR] \x1b[0m" + "ERROR while saving log! | ERROR: " + err);
-            }); 
+            if(config.log_to_file == 1) {
+                fs.appendFile("logs/"+new Date().toLocaleDateString()+".log", "[" + new Date().toLocaleTimeString() + "][" + trigger + "]"+ type_file_send +" " + message+"\n", (err) => {
+                    if(err) console.log("\x1b[90m[" + new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString() + "]\x1b[96m[LOGGER]\x1b[31m[ERROR] \x1b[0m" + "ERROR while saving log! | ERROR: " + err);
+                }); 
+            }
             console.log("\x1b[90m[" + new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString() + "]\x1b[96m[" + trigger + "]"+ type_info_send +" \x1b[0m" + message);
             return 1;
         }
