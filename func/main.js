@@ -1,13 +1,7 @@
-const Sequelize = require('sequelize');
+const sequelize = require('sequelize');
 const bcrypt = require("bcryptjs");
 const models = require('../models/index');
 const log = require('./log');
-
-function genPass(pass) {
-    var salt = bcrypt.genSaltSync(10);
-    var hash = bcrypt.hashSync(pass, salt);
-    return hash;
-}
 
 function gen(length) {
     var result           = '';
@@ -81,14 +75,14 @@ module.exports = {
     loginBySession: async function(session) {
         var user_id = (await getUserIdBySession(session));
         if(user_id == null) {
-            log.log('LOGIN', "Session not found, remove cookie", 4, 3);
+            log.log('LOGIN', "Session not found, remove cookie", 4, 2);
             return { status: 0 };
         }
         else {
             var user_date = new Date(user_id.date);
             var current_date = new Date();
             if(current_date > user_date) {
-                log.log('LOGIN', "Session expired, remove cookie", 4, 3);
+                log.log('LOGIN', "Session expired, remove cookie", 4, 2);
                 return { status: 0 };
             }
             else {
@@ -104,7 +98,7 @@ module.exports = {
         log.log('genPass', "HASH: " + hash, 4, 1);
         return hash;
     },
-    sql: async function() {
+    getProducts: async function() {
         var return_array = [];
         var product_list = await models.product_list.findAll({
             include: {
@@ -122,5 +116,25 @@ module.exports = {
             return_array.push(temp_array);
         }
         return return_array;
+    },
+    getProfit: async function() {
+        var return_array = [];
+        var date = new Date();
+        var month_profit = await models.sessions.sum('price', {
+            where: [
+                sequelize.where(sequelize.fn('YEAR', sequelize.col('time')), date.getFullYear()),
+                sequelize.where(sequelize.fn('MONTH', sequelize.col('time')), date.getMonth()+1),
+                { sort: 'Przychód' }
+            ]
+        });
+        var day_profit = await models.sessions.sum('price', {
+            where: [
+                sequelize.where(sequelize.fn('YEAR', sequelize.col('time')), date.getFullYear()),
+                sequelize.where(sequelize.fn('MONTH', sequelize.col('time')), date.getMonth()+1),
+                sequelize.where(sequelize.fn('DAY', sequelize.col('time')), date.getDate()),
+                { sort: 'Przychód' }
+            ]
+        });
+        return { month: month_profit, day: day_profit };
     }
 }
