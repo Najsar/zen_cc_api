@@ -118,7 +118,6 @@ module.exports = {
         return return_array;
     },
     getProfit: async function() {
-        var return_array = [];
         var date = new Date();
         var month_profit = await models.sessions.sum('price', {
             where: [
@@ -136,5 +135,15 @@ module.exports = {
             ]
         });
         return { month: month_profit, day: day_profit };
+    },
+    getDayPayments: async function(date) {
+        //SELECT id, category, type, payment, main_price, price, paid_price, exchange, TIME(time) as time FROM sessions WHERE DATE(time) = DATE('".$date."') ORDER BY id DESC
+        var day_payments = await models.sessions.findAll({
+            where: [
+                sequelize.where(sequelize.fn('DATE', sequelize.col('time')), date)
+            ],
+            attributes: ['id', 'category', 'type', 'payment', 'main_price', 'price', 'paid_price', 'exchange', [sequelize.fn('TIME', sequelize.col('time')), 'time']]
+        });
+        return day_payments;
     }
 }

@@ -53,6 +53,31 @@ api.get('/get_profit/', async (req, res) => {
     var data = await func.getProfit();
     res.json({status: 1, data: data});
 });
+api.get('/get_day_payments/', async (req, res) => {
+    var date = new Date();
+    var new_data = [];
+    var data = await func.getDayPayments(date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate());
+
+    for(i=0;i<data.length;i++) {
+        new_data.push([ data[i]['id'], data[i]['category'],data[i]['type'], data[i]['payment'], data[i]['main_price'], data[i]['price'], data[i]['paid_price'], data[i]['exchange'], data[i]['time'] ]);
+    }
+    res.json({status: 1, data: new_data});
+});
+api.get('/get_day_payments/:date', async (req, res) => {
+    var date = new Date();
+    var new_data = [];
+    if(req.params.date != undefined) {
+        var data = await func.getDayPayments(req.params.date);
+    }
+    else {
+        var data = await func.getDayPayments(date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate());
+    }
+    
+    for(i=0;i<data.length;i++) {
+        new_data.push([ data[i]['id'], data[i]['category'],data[i]['type'], data[i]['payment'], data[i]['main_price'], data[i]['price'], data[i]['paid_price'], data[i]['exchange'], data[i]['time'] ]);
+    }
+    res.json({status: 1, data: new_data});
+});
 api.get('/logout/', async (req, res) => {
     res.clearCookie('userLogin');
     res.json({status: 1, data: 'Logout success'});
