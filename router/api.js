@@ -78,6 +78,21 @@ api.get('/get_day_payments/:date', async (req, res) => {
     }
     res.json({status: 1, data: new_data});
 });
+api.get('/get_stats/:date', async (req, res) => {
+    var date = new Date();
+    if(req.params.date != undefined) {
+        var data = await func.getStats(req.params.date);
+    }
+    else {
+        var data = await func.getStats(date.getFullYear()+"-"+(date.getMonth()+1)+"-01");
+    }
+    res.json({status: 1, data: data});
+});
+api.get('/get_stats/', async (req, res) => {
+    var date = new Date();
+    var data = await func.getStats(date.getFullYear()+"-"+(date.getMonth()+1)+"-01");
+    res.json({status: 1, data: data});
+});
 api.get('/logout/', async (req, res) => {
     res.clearCookie('userLogin');
     res.json({status: 1, data: 'Logout success'});
