@@ -137,7 +137,6 @@ module.exports = {
         return { month: month_profit, day: day_profit };
     },
     getDayPayments: async function(date) {
-        //SELECT id, category, type, payment, main_price, price, paid_price, exchange, TIME(time) as time FROM sessions WHERE DATE(time) = DATE('".$date."') ORDER BY id DESC
         var day_payments = await models.sessions.findAll({
             where: [
                 sequelize.where(sequelize.fn('DATE', sequelize.col('time')), date)
@@ -146,7 +145,7 @@ module.exports = {
         });
         return day_payments;
     },
-    getStats: async function(date) { //UWAGA TA JEBANA FUNKCJIA PRAWIE DOPROWADZIAŁA MNIE DO DEPRESJI
+    getStats: async function(date) {
         const arrSum = arr => arr.reduce((a,b) => a + b, 0);
         const isset = (ref) => typeof ref !== 'undefined';
         var new_date = new Date(date);
