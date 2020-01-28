@@ -3,10 +3,11 @@ const router = express.Router();
 var bodyParser = require("body-parser");
 var func = require('../func/main');
 var log = require('../func/log');
+const config = require('../config/config.json');
 var cookieParser = require('cookie-parser');
 var cors = require('cors');
 
-var whitelist = ['http://localhost', 'http://10.0.0.10', 'http://srv.zenonvr.com', 'http://195.117.208.61', 'undefined']
+var whitelist = ['http://localhost', 'http://10.0.0.10', 'http://srv.zenonvr.com', 'https://srv.zenonvr.com', 'http://195.117.208.61']
 var corsOptions = {
     origin: function (origin, callback) {
         if(!origin) {
@@ -37,6 +38,9 @@ router.use((req, res, next) => {
 
 router.get('/', (req, res) => {
     res.json({status: 1, data: 'Hits main page'});
+});
+router.get('/get_ver/', (req, res) => {
+    res.json({status: 1, data: config.version});
 });
 
 router.post('/login/', async (req, res) => {
