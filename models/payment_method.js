@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     use_in_report: DataTypes.INTEGER
   }, {
     freezeTableName: true,
-    tableName: 'payment_methods'
+    tableName: 'payment_method'
   });
   payment_method.associate = function(models) {
     // associations can be defined here

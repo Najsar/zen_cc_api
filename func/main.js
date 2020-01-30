@@ -117,6 +117,83 @@ module.exports = {
         }
         return return_array;
     },
+    getPayments: async function() {
+        var return_array = [];
+        var product_list = await models.payment_method.findAll({
+            attributes: {
+                exclude: ['createdAt', 'updatedAt']
+            }
+        });
+        for(i=0; i<product_list.length;i++) {
+            var temp_array = [ product_list[i]['id'], product_list[i]['type'], product_list[i]['use_in_report'] ];
+            return_array.push(temp_array);
+        }
+        return return_array;
+    },
+    getSum: async function() {
+        var date = new Date();
+        var data = await models.sessions.findAll({
+            attributes: {
+                include: ['sort', 'category', 'type', 'payment', 'price', 'paid_price', 'exchange']
+            },
+            where: [
+                sequelize.where(sequelize.fn('YEAR', sequelize.col('time')), date.getFullYear()),
+                sequelize.where(sequelize.fn('MONTH', sequelize.col('time')), date.getMonth()+1),
+                sequelize.where(sequelize.fn('DAY', sequelize.col('time')), date.getDate()),
+            ]
+        });
+        var start_cash = await models.reports.findOne({
+            attributes: {
+                include: ['end_balance']
+            },
+            order: [
+                ['id', 'DESC']
+            ],
+            limit: 1
+        });
+        var sum = {cash:0,card:0,expense:0,pcstore:0,grupon:0,s_prezenty:0,profit:0,partners:0,start_cash:5,partners_card:0};
+        if(!start_cash) {
+            sum['start_cash'] = 0;
+        }
+        else {
+            sum['start_cash'] = start_cash['end_balance'];
+        }
+        if( data[0] != null ) {
+            for( i=0 ; i < data.length ; i++) {
+                if(data[i]['payment'] == "Gotówka" && data[i]['sort'] == "Przychód") sum['cash'] += Number(data[i]['price']);
+                if(data[i]['category'] == "Grupon") sum['grupon'] += Number(data[i]['price']);
+                if(data[i]['payment'] == "Karta") sum['card'] += Number(data[i]['price']);
+                if(data[i]['category'] == "PC Store") sum['pcstore'] += Number(data[i]['price']);
+                if(data[i]['category'] == "Super Prezenty") sum['s_prezenty'] += Number(data[i]['price']);
+                if(data[i]['sort'] == "Rozchód") sum['expense'] += (0-Number(data[i]['price']));
+                if(data[i]['sort'] == "Przychód") sum['profit'] += Number(data[i]['price']);
+                if(data[i]['payment'] == "Sieć Partnerska") sum['partners'] += Number(data[i]['price']);
+            }
+        }
+        sum['cash'] = Math.round(sum['cash'] * 100) / 100; 
+        sum['card'] = Math.round(sum['card'] * 100) / 100;
+        sum['expense'] = 0-(Math.round(sum['expense'] * 100) / 100);
+        sum['pcstore'] = Math.round(sum['pcstore'] * 100) / 100;
+        sum['grupon'] = Math.round(sum['grupon'] * 100) / 100;
+        sum['s_prezenty'] = Math.round(sum['s_prezenty'] * 100) / 100;
+        sum['profit'] = Math.round(sum['profit'] * 100) / 100;
+        sum['partners'] = Math.round(sum['partners'] * 100) / 100;
+        sum['partners_card'] = sum['partners']+sum['card'];
+        return sum;
+    },
+    getExpense: async function() {
+        var return_array = [];
+        var product_list = await models.expense_type.findAll({
+            attributes: {
+                exclude: ['createdAt', 'updatedAt']
+            }
+        });
+        for(i=0; i<product_list.length;i++) {
+            var temp_array = [ product_list[i]['id'], product_list[i]['type'], product_list[i]['use_in_report'] ];
+            return_array.push(temp_array);
+        }
+        return return_array;
+    },
     getProfit: async function() {
         var date = new Date();
         var month_profit = await models.sessions.sum('price', {
@@ -253,5 +330,66 @@ module.exports = {
     
         return thead+tbody+tfoot;
         
+    },
+    getReports: async function(date) {
+        if(date !== undefined) {
+            var dt = new Date(date);
+        }
+        else {
+            var dt = new Date();
+        }
+        var data = await models.reports.findAll({
+            where: [
+                sequelize.where(sequelize.fn('YEAR', sequelize.col('date')), dt.getFullYear() ),
+                sequelize.where(sequelize.fn('MONTH', sequelize.col('date')), dt.getMonth()+1 )
+            ],
+            attributes: [[sequelize.fn('DATE', sequelize.col('date')), '0'], 'start_cash', 'cash', 'card', 'expense', 'pcstore', 'grupon', 's_prezenty', 'partners', 'exchange', 'end_balance', 'profit', 'bonus' ],
+            order: sequelize.col('id'),
+            raw: true
+        });
+        var return_array = [];
+        for(i=0; i < data.length; i++) {
+            return_array.push([data[i][0], data[i]['start_cash'], data[i]['cash'], data[i]['card'], data[i]['expense'], data[i]['pcstore'], data[i]['grupon'], data[i]['s_prezenty'], data[i]['partners'], data[i]['exchange'], data[i]['end_balance'], data[i]['profit'], data[i]['bonus']]);
+        }
+        return { status: 1, data: return_array };;
+    },
+    newPayment: async function(data) {
+        var dt = new Date();
+        if(data[9] == 1) {
+            models.sessions.create({ sort:'Przychód', category:data[1], type: data[3], payment: data[5], main_price: data[2], price: data[6], paid_price: data[7], exchange: data[8], time: dt})
+            .then(session => {
+                log.log("API", 'Added new payment', 4);
+                return { status: 1, data: 'Added new payment' };
+            });
+        }
+        else {
+            for(i=0; i<data[9]; i++) {
+                await models.sessions.create({ sort:'Przychód', category:data[1], type: data[3], payment: data[5], main_price: data[2], price: data[6], paid_price: data[7], exchange: data[8]/data[9], time: dt})
+                .then(session => {
+                    log.log("API", 'Added new payment', 4);
+                });
+            }
+            return { status: 1, data: 'Added new payments' };
+        }
+    },
+    newExpense: async function(data) {
+        var dt = new Date();
+        models.sessions.create({ sort:'Rozchód', category:data[0], type: data[1], payment: 'Gotówka', main_price: data[2], price: data[2], paid_price: data[2], exchange: '0', time: dt})
+        .then(session => {
+            log.log("API", 'Added new expense', 4);
+            return { status: 1, data: 'Added new expense' };
+        });
+    },
+    newReport: async function(end_bal) {
+        var report = await this.getSum();
+        var dt = new Date();
+        var exchange = Math.round( (report['start_cash']+report['cash']-report['expense'])-Number(end_bal) * 100) / 100;
+        var bonus = Math.round( ( (report['profit']-report['partners']) * 0.1 ) * 100) / 100;
+
+        models.reports.create({ start_cash: report['start_cash'], cash: report['cash'], card: report['card'], expense: report['expense'], pcstore: report['pcstore'], grupon: report['grupon'], s_prezenty: report['s_prezenty'], profit: report['profit'], partners: report['partners'], exchange: exchange, bonus: bonus, end_balance: end_bal, date: dt})
+        .then(session => {
+            log.log("API", 'Added new expense', 4);
+            return { status: 1, data: 'Added new expense' };
+        });
     }
 }

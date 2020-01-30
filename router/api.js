@@ -42,8 +42,13 @@ api.use( async (req, res, next) => {
 });*/
 
 api.get('/get_products/', async (req, res) => {
-    var user = await func.getProducts();
-    res.json({status:1, data: user});
+    var products = await func.getProducts();
+    var payments = await func.getPayments();
+    res.json({status:1, data: {products: products, payments: payments}});
+});
+api.get('/get_expense/', async (req, res) => {
+    var expense = await func.getExpense();
+    res.json({status:1, data: expense});
 });
 api.get('/get_user/', async (req, res) => {
     var user = await func.loginBySession(req.cookies.userLogin);
@@ -51,6 +56,10 @@ api.get('/get_user/', async (req, res) => {
 });
 api.get('/get_profit/', async (req, res) => {
     var data = await func.getProfit();
+    res.json({status: 1, data: data});
+});
+api.get('/get_sum/', async (req, res) => {
+    var data = await func.getSum();
     res.json({status: 1, data: data});
 });
 api.get('/get_day_payments/', async (req, res) => {
@@ -93,6 +102,21 @@ api.get('/get_stats/', async (req, res) => {
     var data = await func.getStats(date.getFullYear()+"-"+(date.getMonth()+1)+"-01");
     res.json({status: 1, data: data});
 });
+api.get('/get_reports/', async (req, res) => {
+    var data = await func.getReports();
+    res.json({status: 1, data: data['data']});
+});
+api.get('/get_reports/:date', async (req, res) => {
+    if(req.params.date != undefined) {
+        var data = await func.getReports(req.params.date);
+    }
+    else {
+        var data = await func.getReports();
+    }
+    
+    res.json({status: 1, data: data['data']});
+});
+
 api.get('/logout/', async (req, res) => {
     res.clearCookie('userLogin');
     res.json({status: 1, data: 'Logout success'});
@@ -101,6 +125,23 @@ api.get('/logout/', async (req, res) => {
 api.post('/gen_pass/', async (req, res) => {
     var hash = await func.genPass(req.body.pass);
     res.json({status:1, data: hash});
+});
+api.post('/new_payment/', async (req, res) => {
+    var new_payment = await func.newPayment(req.body.data);
+    res.json({status:1, data: new_payment});
+});
+api.post('/new_expense/', async (req, res) => {
+    var new_payment = await func.newExpense(req.body.data);
+    res.json({status:1, data: new_payment});
+});
+api.post('/new_report/', async (req, res) => {
+    var report = await func.newReport(req.body.data);
+    res.json({status:1, data: report});
+});
+
+api.use('*', (req, res) => {
+    log.log('ROUTER', "PAGE NOT FOUND: URL: "+ req.originalUrl + " TYPE: " + req.method, 4, 3);
+    res.json({status: 0,error: 404, data: 'Page not found'});
 });
 
 module.exports = api;
