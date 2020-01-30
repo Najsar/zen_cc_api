@@ -56,7 +56,7 @@ router.post('/login/', async (req, res) => {
                 res.clearCookie('userLogin');
                 var user = await func.loginUser(user_name, user_pass);
                 if(user.status == 1) {
-                    res.cookie("userLogin", user.session, {maxAge: (1000*60*60*24), domain: '.srv.zenonvr.com', path: '/' } );
+                    res.cookie("userLogin", user.session, {maxAge: (1000*60*60*24), domain: 'srv.zenonvr.com', path: '/' } );
                     log.log('LOGIN', "Login success | USER ID: " + user.user.id, 4, 1); 
                     res.json({status: 1, data: 'Login success'});
                 }
@@ -69,7 +69,7 @@ router.post('/login/', async (req, res) => {
         else {
             var user = await func.loginUser(user_name, user_pass);
             if(user.status == 1) {
-                res.cookie("userLogin", user.session, {maxAge: (1000*60*60*24), domain: '.srv.zenonvr.com', path: '/' } ); 
+                res.cookie("userLogin", user.session, {maxAge: (1000*60*60*24), domain: 'srv.zenonvr.com', path: '/' } ); 
                 res.json( {status: 1, data: 'Login success'} );
             }
             else {
