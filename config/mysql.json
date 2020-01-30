@@ -1,6 +1,6 @@
 {
-  "username": "root",
-  "password": null,
+  "username": "zen_cmd",
+  "password": "SUF8JKo7YZHKE7L0",
   "database": "zen_cmd",
   "host": "127.0.0.1",
   "dialect": "mysql"
