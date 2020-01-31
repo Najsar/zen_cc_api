@@ -364,7 +364,7 @@ module.exports = {
         }
         else {
             for(i=0; i<data[9]; i++) {
-                await models.sessions.create({ sort:'Przychód', category:data[1], type: data[3], payment: data[5], main_price: data[2], price: data[6], paid_price: data[7], exchange: data[8]/data[9], time: dt})
+                await models.sessions.create({ sort:'Przychód', category:data[1], type: data[3], payment: data[5], main_price: data[2], price: data[6]/data[9], paid_price: data[7]/data[9], exchange: data[8]/data[9], time: dt})
                 .then(session => {
                     log.log("API", 'Added new payment', 4);
                 });
