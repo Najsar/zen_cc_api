@@ -151,7 +151,7 @@ module.exports = {
             ],
             limit: 1
         });
-        var sum = {cash:0,card:0,expense:0,pcstore:0,grupon:0,s_prezenty:0,profit:0,partners:0,start_cash:5,partners_card:0};
+        var sum = {cash:0,card:0,expense:0,pcstore:0,grupon:0,s_prezenty:0,profit:0,partners:0,start_cash:0,partners_card:0};
         if(!start_cash) {
             sum['start_cash'] = 0;
         }
@@ -252,7 +252,9 @@ module.exports = {
             }
             find = days.indexOf(data[i][0]);
             find2 = thead_array.indexOf(data[i][1]);
-            tbody_array[find] = [];
+            if(tbody_array[find] == undefined) {
+                tbody_array[find] = [];
+            }
             tbody_array[find][find2*2] = data[i][2];
             tbody_array[find][(find2*2)+1] = data[i][3];
         }
